@@ -7,3 +7,5 @@ As usual, there will be three challenges at the end of the guided tutorial for m
 ## Challenges
 
 ** Challenge #1**: Try making the Save button disabled if there is no image in the image view.
+
+** Challenge #2**: Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
