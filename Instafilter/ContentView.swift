@@ -29,6 +29,10 @@ struct ContentView: View {
     
     @State private var isShowingFilterDialog = false
     
+    private var isSaveDisabled: Bool {
+        outputImage == nil
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -59,6 +63,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button("Save", action: onSaveButtonTapped)
+                        .disabled(isSaveDisabled)
                 }
             }
             .padding([.horizontal, .bottom])
