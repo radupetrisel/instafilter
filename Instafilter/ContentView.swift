@@ -63,6 +63,7 @@ struct ContentView: View {
                         .scaledToFit()
                 }
                 .onTapGesture(perform: onImageTapped)
+                .padding(.vertical)
                 
                 if filterHasIntensity {
                     HStack {
@@ -107,13 +108,19 @@ struct ContentView: View {
                 ImagePicker(image: $originalImage)
             }
             .confirmationDialog("Chose filter", isPresented: $isShowingFilterDialog) {
-                Button("Crystallize") { setFilter(CIFilter.crystallize()) }
-                Button("Edges") { setFilter(CIFilter.edges()) }
-                Button("Gaussian Blur") { setFilter(CIFilter.gaussianBlur()) }
-                Button("Pixellate") { setFilter(CIFilter.pixellate()) }
-                Button("Sepia Tone") { setFilter(CIFilter.sepiaTone()) }
-                Button("Unsharp Mask") { setFilter(CIFilter.unsharpMask()) }
-                Button("Vignette") { setFilter(CIFilter.vignette()) }
+                Group {
+                    Button("Crystallize") { setFilter(CIFilter.crystallize()) }
+                    Button("Edges") { setFilter(CIFilter.edges()) }
+                    Button("Gaussian Blur") { setFilter(CIFilter.gaussianBlur()) }
+                    Button("Pixellate") { setFilter(CIFilter.pixellate()) }
+                    Button("Sepia Tone") { setFilter(CIFilter.sepiaTone()) }
+                    Button("Unsharp Mask") { setFilter(CIFilter.unsharpMask()) }
+                    Button("Vignette") { setFilter(CIFilter.vignette()) }
+                    Button("Bloom") { setFilter(CIFilter.bloom() ) }
+                    Button("Comic Effect") { setFilter(CIFilter.comicEffect()) }
+                    Button("X-Ray") { setFilter(CIFilter.xRay()) }
+                }
+                
                 Button("Cancel", role: .cancel) { }
             }
         }
